@@ -6,7 +6,7 @@ document.getElementById('emailForm').addEventListener('submit', async (e) => {
     const email = emailInput.value.trim();
     
     try {
-        const response = await fetch('http://localhost:5000/api/emails', {
+        const response = await fetch('https://rabbi-ai.vercel.app/api/emails', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

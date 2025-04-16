@@ -2,18 +2,34 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+// Enhanced CORS configuration
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Logging middleware
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  console.log('Headers:', req.headers);
+  next();
+});
+
 app.use(express.json());
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/email-collection', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -69,17 +85,30 @@ app.get('/api/emails', async (req, res) => {
   }
 });
 
-// New endpoint specifically for n8n
+// Endpoint for n8n
 app.get('/api/n8n/emails', async (req, res) => {
   try {
+    console.log('Received request for n8n emails');
     const emails = await Email.find().select('email -_id');
     const emailList = emails.map(item => item.email);
+    console.log(`Returning ${emailList.length} emails`);
     res.json({ emails: emailList });
   } catch (error) {
+    console.error('Error in n8n emails endpoint:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-}); 
+// Serve index.html for all other routes (for SPA support)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({ message: 'Internal server error', error: err.message });
+});
+
+// Export the Express API
+module.exports = app; 

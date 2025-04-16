@@ -84,6 +84,13 @@ app.get('/api/emails', async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
+app.get('/api/ping', async (req, res) => {
+    try {
+      res.json("pong");
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error: error.message });
+    }
+  });
 
 // Endpoint for n8n
 app.get('/api/n8n/emails', async (req, res) => {

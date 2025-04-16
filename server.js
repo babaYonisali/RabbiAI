@@ -86,7 +86,7 @@ app.get('/api/emails', async (req, res) => {
 });
 app.get('/api/ping', async (req, res) => {
     try {
-      res.json("pong");
+      res.json("pon");
     } catch (error) {
       res.status(500).json({ message: 'Server error', error: error.message });
     }

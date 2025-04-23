@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Collection</title>
+    <title>Rabbi AiKiva - Daily Torah in 2 Minutes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="form-container">
-            <h1>Join Our Newsletter</h1>
-            <p>Stay updated with our latest news and updates</p>
-            <form id="emailForm">
-                <div class="input-group">
-                    <input type="email" id="email" placeholder="Enter your email address" required>
-                    <button type="submit">Subscribe</button>
-                </div>
+        <header>
+            <h1 class="rabbi-title">Rabbi AiKiva</h1>
+        </header>
+        <main>
+            <div class="star-of-david">
+                <img src="MaagenDavid.png" alt="Star of David" width="40" height="40">
+            </div>
+            <h2 class="main-title">DAILY TORAH</h2>
+            <div class="separator">IN</div>
+            <div class="minutes">2 MINUTES</div>
+            
+            <div class="down-arrow">↓</div>
+            
+            <form id="emailForm" class="form-container">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe →</button>
             </form>
-            <div id="message"></div>
-        </div>
+            
+            <div class="sections">
+                <h3 class="sections-title">Sections Included</h3>
+                <ul class="sections-list">
+                    <li>Rambam</li>
+                    <li>Daf Yomi</li>
+                    <li>Tanya Yomi</li>
+                </ul>
+            </div>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>

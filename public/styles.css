@@ -2,86 +2,144 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #FDF7F2;
     min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .container {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
+    max-width: 1200px;
+    padding: 4rem;
+    text-align: center;
+}
+
+.rabbi-title {
+    color: #2B54B8;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.star-of-david {
+    color: #2B54B8;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.star-of-david img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.main-title {
+    color: #2B54B8;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.separator {
+    color: #2B54B8;
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+.minutes {
+    color: #2B54B8;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+}
+
+.down-arrow {
+    color: #2B54B8;
+    font-size: 3rem;
+    margin: 2rem 0;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
 }
 
 .form-container {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-p {
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.input-group {
-    display: flex;
-    gap: 10px;
+    margin: 6rem 0;
 }
 
 input[type="email"] {
-    flex: 1;
-    padding: 12px 15px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+    width: 100%;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 16px;
+    background-color: #F5F5F5;
+    font-size: 2rem;
 }
 
 input[type="email"]:focus {
     outline: none;
-    border-color: #667eea;
+    box-shadow: 0 0 0 4px #2B54B8;
 }
 
-button {
-    background: #667eea;
-    color: white;
+button[type="submit"] {
+    width: 100%;
+    padding: 2rem;
     border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
+    border-radius: 16px;
+    background-color: #2B54B8;
+    color: white;
+    font-size: 2rem;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #764ba2;
+button[type="submit"]:hover {
+    background-color: #1e3d8a;
 }
 
-#message {
-    margin-top: 20px;
-    text-align: center;
-    min-height: 20px;
+.sections-title {
+    color: #2B54B8;
+    font-size: 2.4rem;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
 }
 
-.success {
-    color: #28a745;
+.sections-list {
+    list-style: none;
+    color: #2B54B8;
+    font-size: 2rem;
 }
 
-.error {
-    color: #dc3545;
+.sections-list li {
+    margin: 1rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+    .container {
+        padding: 2rem;
+    }
+    
+    .main-title {
+        font-size: 4rem;
+    }
+    
+    .minutes {
+        font-size: 3rem;
+    }
 } 

@@ -21,15 +21,15 @@ body {
 
 .rabbi-title {
     color: #2B54B8;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    margin-top: -2.9rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
 }
 
 .star-of-david {
     color: #2B54B8;
-    font-size: 2.5rem;
-    margin-bottom: -0.9rem;
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
 }
 
 .star-of-david img {
@@ -40,7 +40,7 @@ body {
 
 .main-title {
     color: #2B54B8;
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
@@ -48,36 +48,36 @@ body {
 
 .separator {
     color: #2B54B8;
-    font-size: 5rem;
+    font-size: 3.5rem;
     margin: 0.5rem 0;
     font-weight: 800;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .separator::before,
 .separator::after {
     content: "";
-    height: 4px;
-    width: 225px;
+    height: 3px;
+    width: 150px;
     background-color: #2B54B8;
     display: inline-block;
 }
 
 .minutes {
     color: #2B54B8;
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .down-arrow {
     color: #2B54B8;
-    font-size: 3rem;
-    margin: 2rem 0;
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
     animation: bounce 2s infinite;
 }
 
@@ -94,7 +94,7 @@ body {
 }
 
 .form-container {
-    margin: 6rem 0;
+    margin: 4rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,14 +102,14 @@ body {
 
 input[type="email"] {
     width: 80%;
-    height: 60px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    height: 50px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
     border: none;
-    border-radius: 60px;
+    border-radius: 50px;
     background-color: #F5F5F5;
     font-family: "Arial", sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 }
 
 input[type="email"]:focus {
@@ -119,13 +119,13 @@ input[type="email"]:focus {
 
 button[type="submit"] {
     width: 80%;
-    height: 60px;
-    padding: 2rem;
+    height: 50px;
+    padding: 1.5rem;
     border: none;
-    border-radius: 60px;
+    border-radius: 50px;
     background-color: #2B54B8;
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     cursor: pointer;
     font-family: "Arial", sans-serif;
     transition: background-color 0.3s ease;
@@ -140,33 +140,92 @@ button[type="submit"]:hover {
 
 .sections-title {
     color: #2B54B8;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    margin-top: 6rem;
-    margin-bottom: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
 }
 
 .sections-list {
     list-style: none;
     color: #2B54B8;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .sections-list li {
-    margin: 1rem 0;
+    margin: 0.8rem 0;
 }
 
 /* Responsive adjustments */
-@media (max-width: 960px) {
+@media (max-width: 768px) {
     .container {
         padding: 2rem;
     }
     
+    .rabbi-title {
+        font-size: 1.2rem;
+        margin-top: -1rem;
+    }
+    
     .main-title {
-        font-size: 4rem;
+        font-size: 2.5rem;
+    }
+    
+    .separator {
+        font-size: 2.5rem;
+        gap: 1rem;
+    }
+    
+    .separator::before,
+    .separator::after {
+        width: 100px;
     }
     
     .minutes {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+    
+    input[type="email"],
+    button[type="submit"] {
+        width: 90%;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    .sections-title {
+        font-size: 1.5rem;
+    }
+    
+    .sections-list {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .separator {
+        font-size: 2rem;
+    }
+    
+    .separator::before,
+    .separator::after {
+        width: 60px;
+    }
+    
+    .minutes {
+        font-size: 2rem;
+    }
+    
+    input[type="email"],
+    button[type="submit"] {
+        width: 95%;
+        height: 40px;
     }
 } 

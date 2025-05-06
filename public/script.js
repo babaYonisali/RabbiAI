@@ -1,8 +1,8 @@
-document.getElementById('emailForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const emailInput = document.getElementById('email');
-    const submitButton = document.querySelector('button[type="submit"]');
+// Function to handle form submission
+async function handleFormSubmit(formId) {
+    const form = document.getElementById(formId);
+    const emailInput = form.querySelector('input[type="email"]');
+    const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.innerHTML;
     
     try {
@@ -51,4 +51,15 @@ document.getElementById('emailForm').addEventListener('submit', async (e) => {
             emailInput.disabled = false;
         }, 3000);
     }
+}
+
+// Add event listeners to both forms
+document.getElementById('emailForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleFormSubmit('emailForm');
+});
+
+document.getElementById('headerEmailForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleFormSubmit('headerEmailForm');
 }); 

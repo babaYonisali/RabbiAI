@@ -18,13 +18,14 @@ body {
 
 /* Initial view section */
 header {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     padding: 2rem;
+    padding-bottom: 6rem;
 }
 
 main {
@@ -88,12 +89,12 @@ main {
 .down-arrow {
     color: #2B54B8;
     font-size: 2.5rem;
-    margin: 1.5rem 0;
-    animation: bounce 2s infinite;
     position: absolute;
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    margin-top: 2rem;
 }
 
 @keyframes bounce {

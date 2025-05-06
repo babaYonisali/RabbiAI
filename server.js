@@ -55,23 +55,41 @@ const Email = mongoose.model('Email', emailSchema);
 
 // Routes
 app.post('/api/emails', async (req, res) => {
+  console.log('Received email submission request');
   try {
     const { email } = req.body;
+    console.log('Email received:', email);
     
     // Basic email validation
     if (!email || !email.includes('@')) {
+      console.log('Invalid email format');
       return res.status(400).json({ message: 'Please provide a valid email address' });
+    }
+
+    // Check MongoDB connection
+    if (mongoose.connection.readyState !== 1) {
+      console.log('MongoDB not connected, attempting to reconnect...');
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
     }
 
     const newEmail = new Email({ email });
     await newEmail.save();
+    console.log('Email saved successfully');
     
     res.status(201).json({ message: 'Email saved successfully' });
   } catch (error) {
+    console.error('Error saving email:', error);
     if (error.code === 11000) {
       res.status(400).json({ message: 'Email already exists' });
     } else {
-      res.status(500).json({ message: 'Server error', error: error.message });
+      res.status(500).json({ 
+        message: 'Server error', 
+        error: error.message,
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      });
     }
   }
 });
